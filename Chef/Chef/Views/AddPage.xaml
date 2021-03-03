@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chef.Views.AddPage"
+             xmlns:vm="clr-namespace:Chef.ViewModels">
+    <ContentPage.BindingContext>
+        <vm:AddPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Title:"/>
+            <Entry Grid.Row="1" Text="{Binding TheTitle}" />
+            <Label Grid.Row="2" Text="Image:"/>
+            <Entry Grid.Row="3" Text="{Binding TheImage}"/>
+            <Button Grid.Row="4" Text="Find..." Command="{Binding FindCommand}"/>
+            <!--<Label Grid.Row="5" Text="Recipe:"/>-->
+            <Image Source="{Binding Rec}"/>
+            <Editor Grid.Row="6" Text="{Binding TheHowToMake}"/>
+            <Label Grid.Row="7" Text="Ingridients:" />
+            <Entry Grid.Row="8" Text="{Binding TheName}" />
+            <Button Grid.Row="9" Text="Add" Command="{Binding AddCommand}"/>
+            <ListView Grid.Row="11" ItemsSource="{Binding TheIngridients
+                }">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="10" Command="{Binding SubmitCommand}" Text="Submit"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
