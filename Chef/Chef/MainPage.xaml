@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chef.MainPage"
             xmlns:views="clr-namespace:Chef.Views">
-
-    <views:RecipesPage Title="Recipes" />
+    <NavigationPage Title="Recipes">
+        <x:Arguments>
+            <views:RecipesPage Title="Recipes" />
+        </x:Arguments>
+    </NavigationPage>
     <views:AddPage Title="New recipe" />
-
 </TabbedPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Chef.ViewModels"
+             x:Class="Chef.Views.SingleRecipePage"
+             Title="{Binding TheRecipe.Title}">
+    <ContentPage.BindingContext>
+        <vm:SingleRecipeViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding TheRecipe.Title}" Grid.Row="0" Grid.Column="1" TextTransform="Uppercase" FontSize="Title" />
+            <Label Text="Recipe:" Grid.Row="1" FontAttributes="Bold" FontSize="Medium" />
+            <Label Text="{Binding TheRecipe.HowToMake}" Grid.Row="2" Grid.ColumnSpan="3"/>
+            <Label Text="Ingridients:"  Grid.Row="3" FontSize="Medium" FontAttributes="Bold" />
+            <ListView Grid.Row="4" Grid.ColumnSpan="3" ItemsSource="{Binding TheRecipe.Ingridients}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" TextColor="#000000"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

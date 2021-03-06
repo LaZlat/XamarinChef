@@ -6,17 +6,16 @@ using Xamarin.Forms;
 
 namespace Chef.Converter
 {
-    public class ImageFileToImageSourceConverter : IValueConverter
+    public class IntToBoolConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var path = (string)value;
-            return ImageSource.FromFile(path);
+            return (int)value != 0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return (bool)value ? 1 : 0;
         }
     }
 }

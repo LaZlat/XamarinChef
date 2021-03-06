@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Chef.Models
 {
-    class Ingridient
+    public class Ingridient
     {
         public string Name { get; set; }
     }

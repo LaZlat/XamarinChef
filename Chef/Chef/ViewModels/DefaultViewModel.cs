@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Chef.ViewModels
 {
-    class DefaultViewMode : INotifyPropertyChanged
+    public class DefaultViewMode : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public static ObservableCollection<Recipe> recipes = new ObservableCollection<Recipe>();

@@ -10,9 +10,11 @@ using Xamarin.Forms;
 
 namespace Chef.ViewModels
 {
-    class AddPageViewModel : DefaultViewMode
+    public class AddPageViewModel : DefaultViewMode
     {
         private ObservableCollection<Ingridient> ingridients = new ObservableCollection<Ingridient>();
+        private string theName = string.Empty;
+
         public AddPageViewModel()
         {
             AddCommand = new Command(AddIngridient);
@@ -22,12 +24,12 @@ namespace Chef.ViewModels
         public ICommand AddCommand { get; set; }
         public ICommand SubmitCommand { get; set; }
         public ICommand FindCommand { get; set; }
-        public string TheName { get; set; }
+        public string TheName { get => theName; set => theName = value; }
         public string TheImage { get; set; }
         public string TheHowToMake { get; set; }
         public string TheTitle { get; set; }
-        public ImageSource Rec { get; set; }
-        public ObservableCollection<Ingridient> TheIngridients { get { return ingridients; } }
+        public ImageSource TheImgSource { get; set; }
+        public ObservableCollection<Ingridient> TheIngridients { get { return ingridients; } set { ingridients = value; } }
         public ObservableCollection<Recipe> TheRecipes { get { return recipes; } }
         public void AddIngridient()
         {
@@ -38,8 +40,24 @@ namespace Chef.ViewModels
         }
         public void SubmitRecipe()
         {
-            TheRecipes.Add(new Recipe { Title = "aa" });
+            Recipe madeRecipe = new Recipe
+            {
+                Title = TheTitle,
+                Image = TheImage,
+                ImgSource = TheImgSource,
+                HowToMake = TheHowToMake,
+                Ingridients = TheIngridients
+            };
+            TheRecipes.Add(madeRecipe);
             OnPropertyChanged("TheRecipes");
+            TheTitle = "";
+            TheImage = "";
+            TheHowToMake = "";
+            TheIngridients = new ObservableCollection<Ingridient>();
+            OnPropertyChanged("TheTitle");
+            OnPropertyChanged("TheImage");
+            OnPropertyChanged("TheHowToMake");
+            OnPropertyChanged("TheIngridients");
         }
         public async void PickImage()
         {
@@ -50,10 +68,11 @@ namespace Chef.ViewModels
             });
             if (pickResult != null)
             {
+                TheImage = pickResult.FileName;
+                OnPropertyChanged("TheImage");
+
                 var stream = await pickResult.OpenReadAsync();
-                //TheImage = stream;
-                Rec = ImageSource.FromStream(() => stream);
-                OnPropertyChanged("Rec");
+                TheImgSource = ImageSource.FromStream(() => stream);
             }
         }
     }

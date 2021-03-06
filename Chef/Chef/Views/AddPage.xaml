@@ -2,11 +2,18 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chef.Views.AddPage"
-             xmlns:vm="clr-namespace:Chef.ViewModels">
+             xmlns:vm="clr-namespace:Chef.ViewModels"
+             Title="New Recipe"
+             NavigationPage.HasNavigationBar="True"
+             xmlns:local="clr-namespace:Chef.Converter">
+    <ContentPage.Resources>
+        <local:IntToBoolConverter x:Key="intToBool" />
+    </ContentPage.Resources>
     <ContentPage.BindingContext>
         <vm:AddPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
+        <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -19,29 +26,34 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Text="Title:"/>
-            <Entry Grid.Row="1" Text="{Binding TheTitle}" />
+            <Entry Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding TheTitle}" x:Name="Entry2" />
             <Label Grid.Row="2" Text="Image:"/>
-            <Entry Grid.Row="3" Text="{Binding TheImage}"/>
-            <Button Grid.Row="4" Text="Find..." Command="{Binding FindCommand}"/>
-            <!--<Label Grid.Row="5" Text="Recipe:"/>-->
-            <Image Source="{Binding Rec}"/>
-            <Editor Grid.Row="6" Text="{Binding TheHowToMake}"/>
+            <Label Grid.Row="3" Grid.ColumnSpan="3" Text="{Binding TheImage}"/>
+            <Button Grid.Row="4" Grid.Column="2" Text="Find..." Command="{Binding FindCommand}"/>
+            <Label Grid.Row="5" Text="Recipe:"/>
+            <Editor Grid.Row="6" Grid.ColumnSpan="3" Text="{Binding TheHowToMake}" AutoSize="TextChanges"/>
             <Label Grid.Row="7" Text="Ingridients:" />
-            <Entry Grid.Row="8" Text="{Binding TheName}" />
-            <Button Grid.Row="9" Text="Add" Command="{Binding AddCommand}"/>
-            <ListView Grid.Row="11" ItemsSource="{Binding TheIngridients
-                }">
+            <Entry Grid.Row="8" Grid.ColumnSpan="3" Text="{Binding TheName}" x:Name="Entry1" />
+                <Button Grid.Row="9" Grid.Column="2" Text="Add" Command="{Binding AddCommand}" IsEnabled="{Binding Source={x:Reference Entry1},  Mode=OneWay, Path=Text.Length, Converter={StaticResource intToBool}}"/>
+            <ListView Grid.Row="10" Grid.ColumnSpan="3" ItemsSource="{Binding TheIngridients
+                }" HeightRequest="50">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Name}"/>
+                        <TextCell Text="{Binding Name}" TextColor="#000000"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Grid.Row="10" Command="{Binding SubmitCommand}" Text="Submit"/>
+                <Button Grid.Row="11" Grid.ColumnSpan="3" Command="{Binding SubmitCommand}" Text="Submit" IsEnabled="{Binding Source={x:Reference Entry2},  Mode=OneWay, Path=Text.Length, Converter={StaticResource intToBool}}"/>
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

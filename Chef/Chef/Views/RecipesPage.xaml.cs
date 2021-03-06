@@ -16,7 +16,7 @@ namespace Chef.Views
         public RecipesPage()
         {
             InitializeComponent();
-            BindingContext = new RecipesViewModel();
+            BindingContext = new RecipesViewModel(Navigation);
         }
     }
 }

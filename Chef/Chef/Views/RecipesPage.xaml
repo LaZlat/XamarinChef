@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Chef.Views.RecipesPage"
-             xmlns:vm="clr-namespace:Chef.ViewModels">
+             xmlns:vm="clr-namespace:Chef.ViewModels"
+             Title="Recipes">
     <ContentPage.BindingContext>
         <vm:RecipesViewModel/>
     </ContentPage.BindingContext>
@@ -10,15 +11,12 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="0"/>
-            <ListView Grid.Row="1" 
-            ItemsSource="{Binding TheRecipes}">
+            <ListView Grid.Row="0" 
+            ItemsSource="{Binding TheRecipes}" SelectedItem="{Binding SelectedRecipe}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Title}"/>
-
+                        <ImageCell ImageSource="{Binding ImgSource}" Text="{Binding Title}" TextColor="#000000"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

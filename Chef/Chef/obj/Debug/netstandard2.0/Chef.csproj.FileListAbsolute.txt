@@ -2,11 +2,11 @@ C:\Users\s033860\source\repos\Chef\Chef\Chef\bin\Debug\netstandard2.0\Chef.deps.
 C:\Users\s033860\source\repos\Chef\Chef\Chef\bin\Debug\netstandard2.0\Chef.dll
 C:\Users\s033860\source\repos\Chef\Chef\Chef\bin\Debug\netstandard2.0\ref\Chef.dll
 C:\Users\s033860\source\repos\Chef\Chef\Chef\bin\Debug\netstandard2.0\Chef.pdb
-C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.csprojAssemblyReference.cache
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Views\AddPage.xaml.g.cs
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Views\RecipesPage.xaml.g.cs
+C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Views\SingleRecipePage.xaml.g.cs
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.AssemblyInfoInputs.cache
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.AssemblyInfo.cs
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.csproj.CoreCompileInputs.cache
@@ -14,3 +14,4 @@ C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\XamlC.stam
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.dll
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\ref\Chef.dll
 C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.pdb
+C:\Users\s033860\source\repos\Chef\Chef\Chef\obj\Debug\netstandard2.0\Chef.csprojAssemblyReference.cache
