@@ -38,12 +38,12 @@
             <Entry Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding TheTitle}" x:Name="Entry2" />
             <Label Grid.Row="2" Text="Image:"/>
             <Label Grid.Row="3" Grid.ColumnSpan="3" Text="{Binding TheImage}"/>
-            <Button Grid.Row="4" Grid.Column="2" Text="Find..." Command="{Binding FindCommand}"/>
+            <Button Grid.Row="4" Grid.Column="2" Text="Find..." Command="{Binding FindCommand}" Style="{StaticResource buttonStyle}"/>
             <Label Grid.Row="5" Text="Recipe:"/>
             <Editor Grid.Row="6" Grid.ColumnSpan="3" Text="{Binding TheHowToMake}" AutoSize="TextChanges"/>
             <Label Grid.Row="7" Text="Ingridients:" />
             <Entry Grid.Row="8" Grid.ColumnSpan="3" Text="{Binding TheName}" x:Name="Entry1" />
-                <Button Grid.Row="9" Grid.Column="2" Text="Add" Command="{Binding AddCommand}" IsEnabled="{Binding Source={x:Reference Entry1},  Mode=OneWay, Path=Text.Length, Converter={StaticResource intToBool}}"/>
+                <Button Grid.Row="9" Grid.Column="2" Text="Add" Command="{Binding AddCommand}" IsEnabled="{Binding Source={x:Reference Entry1},  Mode=OneWay, Path=Text.Length, Converter={StaticResource intToBool}}" Style="{StaticResource buttonStyle}"/>
             <ListView Grid.Row="10" Grid.ColumnSpan="3" ItemsSource="{Binding TheIngridients
                 }" HeightRequest="50">
                 <ListView.ItemTemplate>
@@ -52,7 +52,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-                <Button Grid.Row="11" Grid.ColumnSpan="3" Command="{Binding SubmitCommand}" Text="Submit" IsEnabled="{Binding Source={x:Reference Entry2},  Mode=OneWay, Path=Text.Length, Converter={StaticResource intToBool}}"/>
+                <Button Grid.Row="11" Grid.ColumnSpan="3" Command="{Binding SubmitCommand}" Text="Submit" IsEnabled="{Binding Source={x:Reference Entry2},  Mode=OneWay, Path=Text.Length, Converter={StaticResource intToBool}}" Style="{StaticResource buttonStyle}"/>
         </Grid>
         </ScrollView>
     </ContentPage.Content>

@@ -2,11 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Chef.ViewModels"
+             xmlns:controls="clr-namespace:Chef.Controls"
              x:Class="Chef.Views.SingleRecipePage"
              Title="{Binding TheRecipe.Title}">
     <ContentPage.BindingContext>
         <vm:SingleRecipeViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="ControlViewTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Comment:" Grid.Row="0" Grid.Column="0"/>
+                    <Entry Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="Liked:" Grid.Row="0" Grid.Column="1"/>
+                    <CheckBox Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+        </ControlTemplate>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -14,6 +33,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -32,6 +52,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <controls:ControlView ControlTemplate="{StaticResource ControlViewTemplate}" Grid.Row="5" Grid.ColumnSpan="3" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
